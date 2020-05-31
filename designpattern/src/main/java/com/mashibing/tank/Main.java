@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        Frame f = new Frame();
 ////        f.setSize(800,600);
 ////        f.setResizable(false); //不能改变大小
@@ -21,6 +21,11 @@ public class Main {
 ////            }
 ////        });
 
-        TankFrame tankFrame = new TankFrame();
+        TankFrame tf = new TankFrame();
+
+        while (true){
+            Thread.sleep(50);
+            tf.repaint();
+        }
     }
 }
