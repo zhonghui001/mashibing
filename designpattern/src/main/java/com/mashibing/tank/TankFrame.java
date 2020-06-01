@@ -7,11 +7,13 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class TankFrame extends Frame {
-    Tank myTank=new Tank(200,200,Dir.DOWN);
-    Bullet bullet = new Bullet(300,300,Dir.DOWN);
+
+    static final int GAME_WIDTH=800,GAME_HEIGHT=600;
+    Tank myTank=new Tank(200,200,Dir.DOWN,this);
+    Bullet b = new Bullet(300,300,Dir.DOWN);
 
     public TankFrame(){
-        this.setSize(800,600);
+        this.setSize(GAME_WIDTH,GAME_HEIGHT);
         this.setResizable(false); //不能改变大小
         this.setTitle("tank war");
         this.setVisible(true);
@@ -27,10 +29,26 @@ public class TankFrame extends Frame {
         });
     }
 
+    Image offScreenImage = null;
+
+    @Override
+    public void update(Graphics g) {
+        if (offScreenImage == null){
+            offScreenImage = this.createImage(GAME_WIDTH,GAME_HEIGHT);
+        }
+        Graphics gOffScreen = offScreenImage.getGraphics();
+        Color c = gOffScreen.getColor();
+        gOffScreen.setColor(Color.black);
+        gOffScreen.fillRect(0,0,GAME_WIDTH,GAME_HEIGHT);
+        gOffScreen.setColor(c);
+        paint(gOffScreen);
+        g.drawImage(offScreenImage,0,0,null);
+    }
+
     @Override
     public void paint(Graphics g) {
        myTank.paint(g);
-       bullet.paint(g);
+       b.paint(g);
     }
 
     class MyKeyListener extends KeyAdapter{
@@ -77,6 +95,9 @@ public class TankFrame extends Frame {
                     break;
                 case KeyEvent.VK_RIGHT:
                     bR=false;
+                    break;
+                case KeyEvent.VK_CONTROL:
+                    myTank.fire();
                     break;
                 default:
                     break;
