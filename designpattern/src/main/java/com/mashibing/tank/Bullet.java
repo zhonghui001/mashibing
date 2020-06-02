@@ -8,7 +8,7 @@ public class Bullet {
     private static final int SPEED = 8;
     private int x,y;
     private Dir dir;
-    private static  int WIDTH=20,HEIGHT=20;
+    public static  int WIDTH=ResourceMgr.bulletD.getWidth(),HEIGHT=ResourceMgr.bulletD.getHeight();
 
     private boolean live=true;
     TankFrame tf;
@@ -43,7 +43,7 @@ public class Bullet {
                 break;
         }
 
-        g.drawImage(bm,x,y,null);
+        g.drawImage(bm,x+WIDTH/2,y+HEIGHT/2,null);
 
         move();
     }

@@ -15,6 +15,8 @@ public class Tank {
 
     private TankFrame tf;
 
+    private static  int WIDTH=ResourceMgr.tankD.getWidth(),HEIGHT=ResourceMgr.tankD.getHeight();
+
     public boolean isMoving() {
         return moving;
     }
@@ -79,7 +81,9 @@ public class Tank {
     }
 
     public void fire(){
-        tf.bullets.add(new Bullet(this.x,this.y,this.dir,tf));
+        int x1=this.x+WIDTH/2-Bullet.WIDTH/2;
+        int y1=this.y+HEIGHT/2-Bullet.HEIGHT/2;
+        tf.bullets.add(new Bullet(x1,y1,this.dir,tf));
     }
 
     private void move() {
