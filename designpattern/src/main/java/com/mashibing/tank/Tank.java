@@ -1,6 +1,7 @@
 package com.mashibing.tank;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * 封装一个坦克类
@@ -56,8 +57,23 @@ public class Tank {
     public void paint(Graphics g){
         //画一个矩形
         Color c = g.getColor();
-        g.setColor(Color.yellow);
-        g.fillRect(x,y,50,50);
+        BufferedImage bm=null;
+        switch (dir){
+            case DOWN:
+                bm=ResourceMgr.tankD;
+                break;
+            case UP:
+                bm=ResourceMgr.tankU;
+                break;
+            case RIGHT:
+                bm=ResourceMgr.tankR;
+                break;
+            case LEFT:
+                bm=ResourceMgr.tankL;
+                break;
+        }
+
+        g.drawImage(bm,x,y,null);
         g.setColor(c);
         move();
     }
