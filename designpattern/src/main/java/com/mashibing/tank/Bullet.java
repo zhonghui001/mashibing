@@ -1,6 +1,7 @@
 package com.mashibing.tank;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Bullet {
 
@@ -25,11 +26,25 @@ public class Bullet {
             tf.bullets.remove(this);
             return;
         }
-        //画一个矩形
-        Color c=g.getColor();
-        g.setColor(Color.RED);
-        g.fillOval(x,y,WIDTH,HEIGHT);
-        g.setColor(c);
+
+        BufferedImage bm=null;
+        switch (dir){
+            case DOWN:
+                bm=ResourceMgr.bulletD;
+                break;
+            case UP:
+                bm=ResourceMgr.bulletU;
+                break;
+            case RIGHT:
+                bm=ResourceMgr.bulletR;
+                break;
+            case LEFT:
+                bm=ResourceMgr.bulletL;
+                break;
+        }
+
+        g.drawImage(bm,x,y,null);
+
         move();
     }
 
