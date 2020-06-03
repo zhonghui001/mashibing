@@ -2,6 +2,7 @@ package com.mashibing.tank;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 /**
  * 封装一个坦克类
@@ -11,10 +12,12 @@ public class Tank {
     private Dir dir = Dir.DOWN;
     private static int SPEED = 5;
 
-    private boolean moving=false;
+    private boolean moving=true;
     private boolean living=true;
 
+    private Random random=new Random();
     private TankFrame tf;
+    private Group group=Group.BAD;
 
     public static  int WIDTH=ResourceMgr.tankD.getWidth(),HEIGHT=ResourceMgr.tankD.getHeight();
 
@@ -50,11 +53,12 @@ public class Tank {
         this.dir = dir;
     }
 
-    public Tank(int x, int y, Dir dir,TankFrame tankFrame) {
+    public Tank(int x, int y, Dir dir,Group group,TankFrame tankFrame) {
         this.x = x;
         this.y = y;
         this.dir=dir;
         this.tf=tankFrame;
+        this.group=group;
     }
 
     public void paint(Graphics g){
@@ -86,7 +90,7 @@ public class Tank {
     public void fire(){
         int x1=this.x+WIDTH/2-Bullet.WIDTH/2;
         int y1=this.y+HEIGHT/2-Bullet.HEIGHT/2;
-        tf.bullets.add(new Bullet(x1,y1,this.dir,tf));
+        tf.bullets.add(new Bullet(x1,y1,this.dir,this.group,tf));
     }
 
     private void move() {
@@ -106,9 +110,21 @@ public class Tank {
                 y+=SPEED;
                 break;
         }
+
+        if(random.nextInt(10)>8) this.fire();
     }
+
+
 
     public void die(){
         living=false;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }
