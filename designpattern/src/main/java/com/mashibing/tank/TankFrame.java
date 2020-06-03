@@ -58,8 +58,15 @@ public class TankFrame extends Frame {
             bullets.get(i).paint(g);
         }
 
+        //初始化敌方坦克
         for(int i=0;i<tanks.size();i++){
             tanks.get(i).paint(g);
+        }
+
+        for(int i=0;i<bullets.size();i++){
+            for(int j=0;j<tanks.size();j++){
+                bullets.get(i).collideWith(tanks.get(j));
+            }
         }
 
 

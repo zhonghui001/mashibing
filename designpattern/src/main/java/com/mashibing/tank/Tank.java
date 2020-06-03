@@ -12,10 +12,11 @@ public class Tank {
     private static int SPEED = 5;
 
     private boolean moving=false;
+    private boolean living=true;
 
     private TankFrame tf;
 
-    private static  int WIDTH=ResourceMgr.tankD.getWidth(),HEIGHT=ResourceMgr.tankD.getHeight();
+    public static  int WIDTH=ResourceMgr.tankD.getWidth(),HEIGHT=ResourceMgr.tankD.getHeight();
 
     public boolean isMoving() {
         return moving;
@@ -57,6 +58,8 @@ public class Tank {
     }
 
     public void paint(Graphics g){
+
+        if(!living) tf.tanks.remove(this);
         //画一个矩形
         Color c = g.getColor();
         BufferedImage bm=null;
@@ -103,5 +106,9 @@ public class Tank {
                 y+=SPEED;
                 break;
         }
+    }
+
+    public void die(){
+        living=false;
     }
 }
