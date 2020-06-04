@@ -9,7 +9,6 @@ public class Explode {
     public static  int WIDTH=ResourceMgr.explodes[0].getWidth(),
             HEIGHT=ResourceMgr.explodes[0].getHeight();
 
-    private boolean living =true;
     TankFrame tf;
 
     private int step=0;
@@ -24,7 +23,10 @@ public class Explode {
     public void paint(Graphics g){
 
         g.drawImage(ResourceMgr.explodes[step++],x,y,null);
-        if(step>=ResourceMgr.explodes.length) step=0;
+        if(step>=ResourceMgr.explodes.length) {
+            //移除爆炸
+            tf.explodes.remove(this);
+        }
     }
 
 
