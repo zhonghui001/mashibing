@@ -19,7 +19,7 @@ public class Tank {
     private TankFrame tf;
     private Group group=Group.BAD;
 
-    public static  int WIDTH=ResourceMgr.tankD.getWidth(),HEIGHT=ResourceMgr.tankD.getHeight();
+    public static  int WIDTH=ResourceMgr.goodTankU.getWidth(),HEIGHT=ResourceMgr.goodTankU.getHeight();
 
     public boolean isMoving() {
         return moving;
@@ -69,16 +69,16 @@ public class Tank {
         BufferedImage bm=null;
         switch (dir){
             case DOWN:
-                bm=ResourceMgr.tankD;
+                bm=this.group==Group.GOOD?ResourceMgr.goodTankD:ResourceMgr.badTankD;
                 break;
             case UP:
-                bm=ResourceMgr.tankU;
+                bm=this.group==Group.GOOD?ResourceMgr.goodTankU:ResourceMgr.badTankU;
                 break;
             case RIGHT:
-                bm=ResourceMgr.tankR;
+                bm=this.group==Group.GOOD?ResourceMgr.goodTankR:ResourceMgr.badTankR;
                 break;
             case LEFT:
-                bm=ResourceMgr.tankL;
+                bm=this.group==Group.GOOD?ResourceMgr.goodTankL:ResourceMgr.badTankL;;
                 break;
         }
 
