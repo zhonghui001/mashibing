@@ -90,7 +90,7 @@ public class Tank {
     public void fire(){
         int x1=this.x+WIDTH/2-Bullet.WIDTH/2;
         int y1=this.y+HEIGHT/2-Bullet.HEIGHT/2;
-        tf.bullets.add(new Bullet(x1,y1,this.dir,this.group,tf));
+        tf.bullets.add(new Bullet(x,y,this.dir,this.group,tf));
     }
 
     private void move() {
