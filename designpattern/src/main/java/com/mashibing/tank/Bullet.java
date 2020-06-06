@@ -11,6 +11,8 @@ public class Bullet {
     private Group group=Group.BAD;
     public static  int WIDTH=ResourceMgr.bulletD.getWidth(),HEIGHT=ResourceMgr.bulletD.getHeight();
 
+    Rectangle rect=new Rectangle();
+
     private boolean living =true;
     TankFrame tf;
 
@@ -20,6 +22,10 @@ public class Bullet {
         this.dir = dir;
         this.tf=tf;
         this.group=group;
+        rect.x=this.x;
+        rect.y=this.y;
+        rect.width=WIDTH;
+        rect.height=HEIGHT;
 
     }
 
@@ -66,6 +72,11 @@ public class Bullet {
                 break;
         }
 
+        //更新rect的值
+        rect.x=this.x;
+        rect.y=this.y;
+
+
         if (x<0 || y<0 || x>TankFrame.GAME_WIDTH || y>TankFrame.GAME_HEIGHT){
             living =false;
         }
@@ -78,8 +89,8 @@ public class Bullet {
     public void collideWith(Tank tank){
         if(this.group==tank.getGroup()) return;
         //TODO :用一个
-        Rectangle rectB=new Rectangle(this.x,this.y,WIDTH,HEIGHT);
-        Rectangle rectT=new Rectangle(tank.getX(),tank.getY(),Tank.WIDTH,Tank.HEIGHT);
+        Rectangle rectB=rect;
+        Rectangle rectT=tank.rect;
         if(rectB.intersects(rectT)){
             tank.die();
             this.die();

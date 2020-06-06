@@ -19,6 +19,8 @@ public class Tank {
     private TankFrame tf;
     private Group group=Group.BAD;
 
+    Rectangle rect=new Rectangle();
+
     public static  int WIDTH=ResourceMgr.goodTankU.getWidth(),HEIGHT=ResourceMgr.goodTankU.getHeight();
 
     public boolean isMoving() {
@@ -59,6 +61,10 @@ public class Tank {
         this.dir=dir;
         this.tf=tankFrame;
         this.group=group;
+        rect.x=this.x;
+        rect.y=this.y;
+        rect.width=WIDTH;
+        rect.height=HEIGHT;
     }
 
     public void paint(Graphics g){
@@ -118,6 +124,10 @@ public class Tank {
 
         //用于防止坦克出界
         boundsCheck();
+
+        //更新rect的值
+        rect.x=this.x;
+        rect.y=this.y;
     }
 
     private void boundsCheck(){
