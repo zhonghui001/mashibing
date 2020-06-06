@@ -17,6 +17,8 @@ public class Main {
 ////            }
 ////        });
 
+
+
         TankFrame tf = new TankFrame();
 
         int initTankCount=Integer.parseInt((String)PropertyMgr.get("initTankCount"));
