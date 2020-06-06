@@ -10,14 +10,15 @@ import java.util.List;
 
 public class TankFrame extends Frame {
 
-    static final int GAME_WIDTH=1080,GAME_HEIGHT=960;
-    Tank myTank=new Tank(400,200,Dir.DOWN,Group.GOOD,this);
-    List<Tank> tanks=new ArrayList<Tank>();
+    static final int GAME_WIDTH = 1080, GAME_HEIGHT = 960;
+    Tank myTank = new Tank(400, 200, Dir.DOWN, Group.GOOD, this);
+    List<Tank> tanks = new ArrayList<Tank>();
     List<Bullet> bullets = new ArrayList<Bullet>();
-    List<Explode> explodes=new ArrayList<Explode>();
+    List<Explode> explodes = new ArrayList<Explode>();
+    Image offScreenImage = null;
 
-    public TankFrame(){
-        this.setSize(GAME_WIDTH,GAME_HEIGHT);
+    public TankFrame() {
+        this.setSize(GAME_WIDTH, GAME_HEIGHT);
         this.setResizable(false); //不能改变大小
         this.setTitle("tank war");
         this.setVisible(true);
@@ -33,73 +34,70 @@ public class TankFrame extends Frame {
         });
     }
 
-    Image offScreenImage = null;
-
     @Override
     public void update(Graphics g) {
-        if (offScreenImage == null){
-            offScreenImage = this.createImage(GAME_WIDTH,GAME_HEIGHT);
+        if (offScreenImage == null) {
+            offScreenImage = this.createImage(GAME_WIDTH, GAME_HEIGHT);
         }
         Graphics gOffScreen = offScreenImage.getGraphics();
         Color c = gOffScreen.getColor();
         gOffScreen.setColor(Color.black);
-        gOffScreen.fillRect(0,0,GAME_WIDTH,GAME_HEIGHT);
+        gOffScreen.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
         gOffScreen.setColor(c);
         paint(gOffScreen);
-        g.drawImage(offScreenImage,0,0,null);
+        g.drawImage(offScreenImage, 0, 0, null);
     }
 
     @Override
     public void paint(Graphics g) {
-       myTank.paint(g);
+        myTank.paint(g);
 //       for(Bullet b:bullets){
 ////           b.paint(g);
 ////       }
-        for(int i=0;i<bullets.size();i++){
+        for (int i = 0; i < bullets.size(); i++) {
             bullets.get(i).paint(g);
         }
 
         //初始化敌方坦克
-        for(int i=0;i<tanks.size();i++){
+        for (int i = 0; i < tanks.size(); i++) {
             tanks.get(i).paint(g);
         }
         //画爆炸
-        for(int i=0;i<explodes.size();i++){
+        for (int i = 0; i < explodes.size(); i++) {
             explodes.get(i).paint(g);
         }
 
         //碰撞检测
-        for(int i=0;i<bullets.size();i++){
-            for(int j=0;j<tanks.size();j++){
+        for (int i = 0; i < bullets.size(); i++) {
+            for (int j = 0; j < tanks.size(); j++) {
                 bullets.get(i).collideWith(tanks.get(j));
             }
         }
 
 
-
     }
 
-    class MyKeyListener extends KeyAdapter{
-        boolean bU=false;
-        boolean bL=false;
-        boolean bR=false;
-        boolean bD=false;
+    class MyKeyListener extends KeyAdapter {
+        boolean bU = false;
+        boolean bL = false;
+        boolean bR = false;
+        boolean bD = false;
 
         @Override
         public void keyPressed(KeyEvent e) {
-            int key=e.getKeyCode();
-            switch (key){
+            int key = e.getKeyCode();
+            switch (key) {
                 case KeyEvent.VK_LEFT:
-                    bL=true;
+                    bL = true;
                     break;
                 case KeyEvent.VK_UP:
-                    bU=true;
+                    bU = true;
                     break;
                 case KeyEvent.VK_DOWN:
-                    bD=true;
+                    bD = true;
                     break;
                 case KeyEvent.VK_RIGHT:
-                    bR=true;
+                    bR = true;
                     break;
                 default:
                     break;
@@ -110,19 +108,19 @@ public class TankFrame extends Frame {
 
         @Override
         public void keyReleased(KeyEvent e) {
-            int key=e.getKeyCode();
-            switch (key){
+            int key = e.getKeyCode();
+            switch (key) {
                 case KeyEvent.VK_LEFT:
-                    bL=false;
+                    bL = false;
                     break;
                 case KeyEvent.VK_UP:
-                    bU=false;
+                    bU = false;
                     break;
                 case KeyEvent.VK_DOWN:
-                    bD=false;
+                    bD = false;
                     break;
                 case KeyEvent.VK_RIGHT:
-                    bR=false;
+                    bR = false;
                     break;
                 case KeyEvent.VK_CONTROL:
                     myTank.fire();
@@ -133,8 +131,8 @@ public class TankFrame extends Frame {
             setMainTankDir();
         }
 
-        private void setMainTankDir(){
-            if(!bL && !bR && !bU && !bD) myTank.setMoving(false);
+        private void setMainTankDir() {
+            if (!bL && !bR && !bU && !bD) myTank.setMoving(false);
             else {
                 myTank.setMoving(true);
                 if (bL) myTank.setDir(Dir.LEFT);
