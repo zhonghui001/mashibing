@@ -94,7 +94,7 @@ public class Tank {
         int x1 = this.x + WIDTH / 2 - Bullet.WIDTH / 2;
         int y1 = this.y + HEIGHT / 2 - Bullet.HEIGHT / 2;
         //tf.bullets.add(new Bullet(x, y, this.dir, this.group, tf));
-        Fire fire=new SingleBulletFire();
+        Fire fire=DefaultFire.getInstance(); //改成单例,省的创建太多的实例
         fire.fire(tf,dir,getGroup(),x1,y1);
     }
 
