@@ -1,5 +1,8 @@
 package com.mashibing.tank;
 
+import com.mashibing.tank.base.BaseTank;
+import com.mashibing.tank.base.FireStg;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
@@ -7,7 +10,7 @@ import java.util.Random;
 /**
  * 封装一个坦克类
  */
-public class Tank {
+public class Tank extends BaseTank {
     public static int WIDTH = ResourceMgr.goodTankU.getWidth(), HEIGHT = ResourceMgr.goodTankU.getHeight();
     private static int SPEED = 5;
     Rectangle rect = new Rectangle();
@@ -94,8 +97,8 @@ public class Tank {
         int x1 = this.x + WIDTH / 2 - Bullet.WIDTH / 2;
         int y1 = this.y + HEIGHT / 2 - Bullet.HEIGHT / 2;
         //tf.bullets.add(new Bullet(x, y, this.dir, this.group, tf));
-        Fire fire=DefaultFire.getInstance(); //改成单例,省的创建太多的实例
-        fire.fire(tf,dir,getGroup(),x1,y1);
+        FireStg fireStg = DefaultFireStg.getInstance(); //改成单例,省的创建太多的实例
+        fireStg.fire(tf,dir,getGroup(),x1,y1);
     }
 
     private void move() {

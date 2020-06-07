@@ -1,18 +1,20 @@
 package com.mashibing.tank;
 
+import com.mashibing.tank.base.FireStg;
+
 /**
  * 因为每次都需要new
  * 所以直接变成单例
  */
-public class DefaultFire implements Fire {
+public class DefaultFireStg implements FireStg {
 
-    private DefaultFire(){}
+    private DefaultFireStg(){}
 
     private static class DefaultFireHolder{
-       static DefaultFire instance=new DefaultFire();
+       static DefaultFireStg instance=new DefaultFireStg();
     }
 
-    public static DefaultFire getInstance() {
+    public static DefaultFireStg getInstance() {
         return DefaultFireHolder.instance;
     }
 

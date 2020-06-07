@@ -1,8 +1,10 @@
 package com.mashibing.tank;
 
+import com.mashibing.tank.base.BaseExplode;
+
 import java.awt.*;
 
-public class Explode {
+public class Explode extends BaseExplode {
 
     public static int WIDTH = ResourceMgr.explodes[0].getWidth(),
             HEIGHT = ResourceMgr.explodes[0].getHeight();

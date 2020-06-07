@@ -1,9 +1,11 @@
 package com.mashibing.tank;
 
+import com.mashibing.tank.base.BaseBullet;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Bullet {
+public class Bullet extends BaseBullet {
 
     private static final int SPEED = 8;
     public static int WIDTH = ResourceMgr.bulletD.getWidth(), HEIGHT = ResourceMgr.bulletD.getHeight();

@@ -1,12 +1,14 @@
 package com.mashibing.tank;
 
-public class FourBulletFire implements Fire {
+import com.mashibing.tank.base.FireStg;
 
-    public FourBulletFire() {
+public class FourBulletFireStg implements FireStg {
+
+    public FourBulletFireStg() {
     }
 
     private static class FourBulletFireHolder{
-        static FourBulletFire instance=new FourBulletFire();
+        static FourBulletFireStg instance=new FourBulletFireStg();
     }
 
 
