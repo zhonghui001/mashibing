@@ -11,6 +11,8 @@
     <modules>
         <module>designpattern</module>
         <module>learn</module>
+        <module>io</module>
+        <module>netty</module>
     </modules>
 
 
