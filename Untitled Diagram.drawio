@@ -1,1 +1,39 @@
-<mxfile host="app.diagrams.net" modified="2020-12-09T13:21:36.131Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36" etag="T9MabdPWEwfELsSLtHsC" version="14.0.0" type="github"><diagram id="PVjHA7V404gOdq9WjJog" name="Page-1">zZddb5swFIZ/jaXtYhVfIeSSELpetFKlaFt3NTnggFeDkTEJ5NfPLiYETNpVStZJvbBfH9vHz3scU2AHWf2VwSJ9oDEiwDLiGtgrYFmmY1lA/hlx0ypzVwkJw7EK6oU1PiAlGkqtcIzKQSCnlHBcDMWI5jmK+ECDjNH9MGxLyXDXAiZIE9YRJLr6A8c8bVXPmvf6HcJJ2u1suot2JINdsDpJmcKY7k8kOwR2wCjlbSurA0QkvI5LO+/2zOgxMYZy/jcTaod537/docPjbhHY/iG63zx9sdtVdpBU6sAqWd50BBJGq0KFIcZRPcUdbrpwQ8/LPJ5WlAmiGeKsESFqIUfNaDqCqr/vcdvdqukpakOJUFmcHJfuKYiGAvEOKKYGpRTHef5VVpsMcw2Q4JPHSC5oAHu5TzFH6wJGcnQvLoXQUp6JBFamaEKCk1y0CdqKcywlUSyqzVcypzL+LO1Tquf91FF/HEtLYxmlmMQPEOcBgaXcLiBYHMovRJG5RELZMNFKZAsWxU3JIeOfPr+C3Xw39osDVqtYw1q29FI23Qn87rXoux9/ve0REkdnYk0xOW51cSiOBuWkAv/ju+2+ebf/MciZBpIVUZjvLkrx4ry6VRaDulxMXFXH1Gl614LpTcEE4QwsbsHSB+Ec+CYQu4cuWATAW8khz5fimLYAxYdIS87oMwoooUwoOc1F5HKLCRlJHfpIgEVsooQzHMdym0kPhy5fyzdv9Llg6MY5U7fgWr7NNf4oFl+QqksZT2lCc0jCXh2R6mPuqfyJeLHsN+K8UZ/DsOJ0aCiqMX+S029mqvfzZGRVq5VfOs3AEJncWTu6WqIVi9Dbj7p4mBP0mpPOtJMMEcjxbpjHlDFq6iPFIsP+5s5HT8r4+WzzUrNG9h7TmHJcdPvv8Ta8/6/GDv8A</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2020-12-09T13:23:44.764Z" agent="5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36" etag="nf3P4zI_Y0Va-ZxXmFWR" version="14.0.0" type="github">
+  <diagram id="PVjHA7V404gOdq9WjJog" name="Page-1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x4r8VUHezPv9C3AzcLbX-3" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="40" y="110" width="320" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x4r8VUHezPv9C3AzcLbX-1" value="spark_submit" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" parent="x4r8VUHezPv9C3AzcLbX-3" vertex="1">
+          <mxGeometry width="320" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x4r8VUHezPv9C3AzcLbX-2" value="childMainClass=ClientApp&lt;br&gt;app.start()" style="rounded=1;whiteSpace=wrap;html=1;align=left;" parent="x4r8VUHezPv9C3AzcLbX-3" vertex="1">
+          <mxGeometry x="20" y="20" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x4r8VUHezPv9C3AzcLbX-6" value="" style="group" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="50" y="230" width="270" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="x4r8VUHezPv9C3AzcLbX-4" value="ClientApp" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" parent="x4r8VUHezPv9C3AzcLbX-6" vertex="1">
+          <mxGeometry width="270" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="x4r8VUHezPv9C3AzcLbX-5" value="rpcEnv" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="x4r8VUHezPv9C3AzcLbX-6" vertex="1">
+          <mxGeometry x="19" y="90" width="141" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x4r8VUHezPv9C3AzcLbX-8" value="rpc基础服务" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="x4r8VUHezPv9C3AzcLbX-6" vertex="1">
+          <mxGeometry x="80" y="100" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Ah1g94mcM1d-Eal2zF6q-1" value="ClientEndpoint&lt;br&gt;注册端点&lt;br&gt;默认会调用onStart()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="x4r8VUHezPv9C3AzcLbX-6">
+          <mxGeometry x="29.5" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="x4r8VUHezPv9C3AzcLbX-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="x4r8VUHezPv9C3AzcLbX-2" target="x4r8VUHezPv9C3AzcLbX-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
